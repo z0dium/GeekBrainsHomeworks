@@ -1,0 +1,15 @@
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\bin\Debug\net6.0\Zadacha4.exe
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\bin\Debug\net6.0\Zadacha4.deps.json
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\bin\Debug\net6.0\Zadacha4.runtimeconfig.json
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\bin\Debug\net6.0\Zadacha4.dll
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\bin\Debug\net6.0\Zadacha4.pdb
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.csproj.AssemblyReference.cache
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.GeneratedMSBuildEditorConfig.editorconfig
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.AssemblyInfoInputs.cache
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.AssemblyInfo.cs
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.csproj.CoreCompileInputs.cache
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.dll
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\refint\Zadacha4.dll
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.pdb
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\Zadacha4.genruntimeconfig.cache
+C:\GeekBrains sudy\GeekBrainsHomeworks\C#\Sem1\Zadacha4\obj\Debug\net6.0\ref\Zadacha4.dll
