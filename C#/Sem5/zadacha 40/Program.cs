@@ -9,5 +9,8 @@ int second = int.Parse(Console.ReadLine());
 Console.Write("Введите длину третьей стороны: ");
 int third = int.Parse(Console.ReadLine());
 
-if (first < second + third && second < first + third && third < first + second) Console.WriteLine("Треугольник с такими сторонами существует");
-else Console.WriteLine("Треугольник с такими сторонами не существует");
+bool triangleExists(int first, int second, int third){
+    if (first < second + third && second < first + third && third < first + second) return true;
+    else return false;
+}
+Console.WriteLine("Треугольник с такими сторонами " + (triangleExists(first, second, third)?"":"не ") + "существует");
