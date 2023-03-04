@@ -28,8 +28,9 @@ void printArray(int[,] array){
 }
 
 int calculate(int[,] array){
+    int diagonalLength = array.GetLength(0) < array.GetLength(1) ? array.GetLength(0) : array.GetLength(1)
     int sum = 0;
-    for (int i = 0; i < array.GetLength(0); i++){
+    for (int i = 0; i < diagonalLength; i++){
         sum += array[i,i];
     }
     return sum;
