@@ -2,7 +2,11 @@
 // Напишите программу, которая заменяет строки на столбцы.
 // В случае, если это невозможно, программа должна вывести сообщение для пользователя.
 Console.Clear();
-int[,] array = getArray(5,6);
+Console.Write("Введите количество строк массива: ");
+int rows = int.Parse(Console.ReadLine());
+Console.Write("Введите количество столбцов массива: ");
+int cols = int.Parse(Console.ReadLine());
+int[,] array = getArray(rows,cols);
 printArray(array);
 Console.WriteLine();
 transposeArray(array);
@@ -35,6 +39,7 @@ void transposeArray(int[,] array){
     }
     for (int i=0; i < array.GetLength(0); i++){
         for (int j=i; j < array.GetLength(1); j++){
+            if (i == j) continue;
             int temp = array[i,j];
             array[i,j] = array[j,i];
             array[j,i] = temp;
