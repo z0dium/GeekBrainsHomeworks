@@ -1,0 +1,125 @@
+﻿// Игра жизнь
+Console.Clear();
+int m = 30;
+int n = 30;
+int k = 100;
+//bool[,] initialUniverse = {{false,true,false,false,false,false,false,false,false,false},
+//                    {true,false,true,false,false,false,false,false,false,false},
+//                    {false,true,false,true,false,false,false,false,false,false},
+//                    {false,false,false,false,true,false,false,false,false,false},
+//                    {false,false,false,true,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false}};
+//bool[,] initialUniverse = {{false,false,false,false,false,false,false,false,false,false},    //    87 iteration life
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,true,false,false,false,false,false},
+//                    {false,false,false,false,true,false,false,false,false,false},
+//                    {false,false,false,false,true,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,true,false,false},
+//                    {false,false,false,false,false,false,false,false,true,false},
+//                    {false,false,false,false,false,false,false,true,true,true},
+//                    {false,false,false,false,false,false,false,false,true,false},
+//                    {false,false,false,false,false,false,false,false,false,false}};
+//bool[,] initialUniverse = {{false,false,false,false,false,false,false,false,false,false},  //  forever (moving static)
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,true,true,true,false,false,false,false},
+//                    {false,false,false,false,false,false,false,false,false,false},
+//                    {false,false,false,false,false,false,false,true,false,false},
+//                    {false,false,false,false,false,false,false,false,true,false},
+//                    {false,false,false,false,false,false,false,true,true,true},
+//                    {false,false,false,false,false,false,false,false,true,false},
+//                    {false,false,false,false,false,false,false,false,false,false}};
+//bool[,] emptyInitialUniverse =  {{false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false},
+//                                 {false,false,false,false,false,false,false,false,false,false}};
+bool[,] initialUniverse = loadUniverseFromFile();
+System.Threading.Thread.Sleep(2000);
+bool[,] universe = createUniverse(initialUniverse);
+
+executeGame(k);
+
+bool[,] loadUniverseFromFile(){
+    Console.Clear();
+    try
+    {
+        using (var sr = new StreamReader("INPUT.TXT"))
+        {   
+            string inputLine = sr.ReadLine();
+            Console.WriteLine(inputLine);
+            bool[,] result = new bool[inputLine.Length,inputLine.Length];
+            Console.WriteLine(result.GetLength(0));
+            for (int i=0; i < inputLine.Length; i++){
+                for (int j=0; j < inputLine.Length; j++){
+                    result[i,j] = inputLine[j] == 'X' ? true : false;
+                }
+            inputLine = sr.ReadLine(); 
+            if (inputLine == null) break;   
+            }
+            return result;
+        }
+        
+    }
+    catch (IOException e)
+    {
+        Console.WriteLine("The file could not be read:");
+        Console.WriteLine(e.Message);
+        return new bool[10,10];
+    }
+      
+}
+
+bool[,] createUniverse(bool[,] initialUniverse){
+    bool[,] universe = new bool[initialUniverse.GetLength(0)*3,initialUniverse.GetLength(1)*3];
+    Console.Clear();
+    Console.WriteLine("Initial state");
+    for (int i=0; i < initialUniverse.GetLength(0); i++){
+        Console.Write("|");
+        for (int j=0; j < initialUniverse.GetLength(1); j++){
+            universe[i+initialUniverse.GetLength(0),j+initialUniverse.GetLength(1)] = initialUniverse[i,j];
+            Console.Write(initialUniverse[i,j] ? "X" : " ");
+        }
+        Console.Write("|");
+        Console.WriteLine();
+    }
+    return universe;
+}
+void iterateAndPrintUniverse(bool[,] universe){
+    bool[,] currentState = (bool[,])universe.Clone();
+    for (int i=0; i < currentState.GetLength(0); i++){
+        Console.Write("|");
+        for (int j=0; j < currentState.GetLength(1); j++){
+            int aliveNeighbour = 0;
+            for (int z = -1; z < 2; z++){
+                for (int y = -1; y < 2 ; y++) {
+                    if (currentState[((n - 1) + i + z) % n,((m - 1) + j + y) % m] == true) aliveNeighbour = aliveNeighbour + 1;
+                }
+            }
+            if (aliveNeighbour == 2) {}
+            else if (aliveNeighbour == 3) universe[i,j] = true;
+            else universe[i,j] = false;
+            Console.Write(universe[i,j] ? "X" : " ");
+        }
+        Console.Write("|");
+        Console.WriteLine();
+    }
+}
+void executeGame(int countOfGeneration){
+    for (int i=0; i < countOfGeneration; i++){
+        Console.Clear();
+        Console.WriteLine($"Generation {i}");
+        iterateAndPrintUniverse(universe);
+        System.Threading.Thread.Sleep(500);
+    }
+}
+
