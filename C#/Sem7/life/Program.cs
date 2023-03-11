@@ -2,7 +2,7 @@
 Console.Clear();
 int m = 30;
 int n = 30;
-int k = 100;
+int k = 1000;
 //bool[,] initialUniverse = {{false,true,false,false,false,false,false,false,false,false},
 //                    {true,false,true,false,false,false,false,false,false,false},
 //                    {false,true,false,true,false,false,false,false,false,false},
@@ -44,6 +44,7 @@ int k = 100;
 //                                 {false,false,false,false,false,false,false,false,false,false},
 //                                 {false,false,false,false,false,false,false,false,false,false}};
 bool[,] initialUniverse = loadUniverseFromFile();
+printUniverse(initialUniverse);
 System.Threading.Thread.Sleep(2000);
 bool[,] universe = createUniverse(initialUniverse);
 
@@ -56,9 +57,7 @@ bool[,] loadUniverseFromFile(){
         using (var sr = new StreamReader("INPUT.TXT"))
         {   
             string inputLine = sr.ReadLine();
-            Console.WriteLine(inputLine);
             bool[,] result = new bool[inputLine.Length,inputLine.Length];
-            Console.WriteLine(result.GetLength(0));
             for (int i=0; i < inputLine.Length; i++){
                 for (int j=0; j < inputLine.Length; j++){
                     result[i,j] = inputLine[j] == 'X' ? true : false;
@@ -80,7 +79,7 @@ bool[,] loadUniverseFromFile(){
 }
 
 bool[,] createUniverse(bool[,] initialUniverse){
-    bool[,] universe = new bool[initialUniverse.GetLength(0)*3,initialUniverse.GetLength(1)*3];
+    bool[,] universe = new bool[m,n];
     Console.Clear();
     Console.WriteLine("Initial state");
     for (int i=0; i < initialUniverse.GetLength(0); i++){
@@ -102,7 +101,9 @@ void iterateAndPrintUniverse(bool[,] universe){
             int aliveNeighbour = 0;
             for (int z = -1; z < 2; z++){
                 for (int y = -1; y < 2 ; y++) {
-                    if (currentState[((n - 1) + i + z) % n,((m - 1) + j + y) % m] == true) aliveNeighbour = aliveNeighbour + 1;
+                    if (y != 0 || z != 0 ){
+                        if (currentState[((n - 1) + i + z) % (n-1),((m - 1) + j + y) % (m-1)] == true) aliveNeighbour = aliveNeighbour + 1;
+                    }
                 }
             }
             if (aliveNeighbour == 2) {}
@@ -119,7 +120,17 @@ void executeGame(int countOfGeneration){
         Console.Clear();
         Console.WriteLine($"Generation {i}");
         iterateAndPrintUniverse(universe);
-        System.Threading.Thread.Sleep(500);
+        System.Threading.Thread.Sleep(100);
+    }
+}
+
+void printUniverse(bool[,] universe){
+    Console.Clear();
+    for (int i = 0; i < universe.GetLength(0); i++){
+        for (int j =0; j < universe.GetLength(1); j++){
+            Console.Write(universe[i,j] ? 'X' : ' ');
+        }
+        Console.WriteLine();
     }
 }
 
