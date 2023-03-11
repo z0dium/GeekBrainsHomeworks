@@ -3,17 +3,7 @@ Console.Clear();
 int m = 30;
 int n = 30;
 int k = 1000;
-//bool[,] initialUniverse = {{false,true,false,false,false,false,false,false,false,false},
-//                    {true,false,true,false,false,false,false,false,false,false},
-//                    {false,true,false,true,false,false,false,false,false,false},
-//                    {false,false,false,false,true,false,false,false,false,false},
-//                    {false,false,false,true,false,false,false,false,false,false},
-//                    {false,false,false,false,false,false,false,false,false,false},
-//                    {false,false,false,false,false,false,false,false,false,false},
-//                    {false,false,false,false,false,false,false,false,false,false},
-//                    {false,false,false,false,false,false,false,false,false,false},
-//                    {false,false,false,false,false,false,false,false,false,false}};
-//bool[,] initialUniverse = {{false,false,false,false,false,false,false,false,false,false},    //    87 iteration life
+//bool[,] initialUniverse = {{false,false,false,false,false,false,false,false,false,false},    //    650 iteration life
 //                    {false,false,false,false,false,false,false,false,false,false},
 //                    {false,false,false,false,true,false,false,false,false,false},
 //                    {false,false,false,false,true,false,false,false,false,false},
@@ -23,7 +13,7 @@ int k = 1000;
 //                    {false,false,false,false,false,false,false,true,true,true},
 //                    {false,false,false,false,false,false,false,false,true,false},
 //                    {false,false,false,false,false,false,false,false,false,false}};
-//bool[,] initialUniverse = {{false,false,false,false,false,false,false,false,false,false},  //  forever (moving static)
+//bool[,] initialUniverse = {{false,false,false,false,false,false,false,false,false,false},  //  forever (dynamic loop)
 //                    {false,false,false,false,false,false,false,false,false,false},
 //                    {false,false,false,false,false,false,false,false,false,false},
 //                    {false,false,false,true,true,true,false,false,false,false},
@@ -33,16 +23,6 @@ int k = 1000;
 //                    {false,false,false,false,false,false,false,true,true,true},
 //                    {false,false,false,false,false,false,false,false,true,false},
 //                    {false,false,false,false,false,false,false,false,false,false}};
-//bool[,] emptyInitialUniverse =  {{false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false},
-//                                 {false,false,false,false,false,false,false,false,false,false}};
 bool[,] initialUniverse = loadUniverseFromFile();
 printUniverse(initialUniverse);
 System.Threading.Thread.Sleep(2000);
